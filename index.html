@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular Tree</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container body-content">
+        <div class="container" ng-controller="blsTreeController">
+            <div class="row">
+                <h3>TreeView</h3>
+                <div class="tree-view">
+                    <bls-tree ng-model="data"
+                              on-select="selectNode"
+                              children-property="['children', 'user']"
+                              async-load="loadAsync">
+                        <i class="tree-icon tree-default-icon"></i>
+                        <span>{{node.text + " - " + node.description}}</span>
+                    </bls-tree>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="Scripts/angular.js"></script>
+    <script>
+        window.myApp = {}
+        myApp = angular.module('myApp', ['blsTreeComponent']);
+    </script>
+    <script src="Scripts/blsTreeController.js"></script>
+    <script src="Scripts/data.js"></script>
+</body>
+</html>
